@@ -67,6 +67,3 @@ The game continues until one player reaches **3 wins**, and after each match, pl
 - Add a graphical interface for better user experience.
 - Improve input validation and error handling.
 
-## License
-This project is open-source and free to use.
-
