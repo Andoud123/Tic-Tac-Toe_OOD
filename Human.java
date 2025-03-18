@@ -6,13 +6,13 @@ public class Human extends Player {
 
     public Human(String name){
         super(name);
-        
     }
+    
     public Human(){
         this.name = " ";
     }
 
-    public String getName(){
+    public String getName(){ // Get player's name
         return name;
     }
 

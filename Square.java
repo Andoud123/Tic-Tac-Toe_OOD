@@ -1,10 +1,10 @@
 public class Square {
     
-    private char hCoordinate;
-    private int vCoordinate;
-    private String symbol;
+    private int hCoordinate; // presents 1, 2, 3
+    private char vCoordinate; // presents A, B, C
+    private String symbol; // presents the symbols X,O
     
-    public Square(char hCoordinate, int vCoordinate){
+    public Square(int hCoordinate, char vCoordinate){
         this.hCoordinate = hCoordinate;
         this.vCoordinate = vCoordinate;
     }
@@ -19,15 +19,15 @@ public class Square {
         return symbol;
     }
 
-    public char getHCoordinate(){
+    public int getHCoordinate(){
         return hCoordinate;
     }
     
-    public int getVCoordinate(){
+    public char getVCoordinate(){
         return vCoordinate;
     }
 
-    public boolean isOccupied(){
+    public boolean isOccupied(){ // Check if the cell is not empty
         return !this.symbol.isEmpty();
     }
 

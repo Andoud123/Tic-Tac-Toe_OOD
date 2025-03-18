@@ -1,15 +1,15 @@
 public class Grid {
     
-    String[][] squares;
+    String[][] squares; // 2D array to represent the board
     private int row;
     private int column;
     public static final int SIZE = 3;
 
-    public Grid(){
+    public Grid(){ // Initialize the board
         squares = new String[SIZE][SIZE];
             for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
-                    squares[i][j] = " ";
+                    squares[i][j] = " "; // Set all cells empty
                 }
             }
     }
@@ -30,7 +30,8 @@ public class Grid {
             if ((squares[i][0].equals(letter) && squares[i][1].equals(letter) && squares[i][2].equals(letter)) ||
                 (squares[0][i].equals(letter) && squares[1][i].equals(letter) && squares[2][i].equals(letter))) {
                 return true;
-            }
+            } 
+            // Check diagonals
             if ((squares[0][0].equals(letter) && squares[1][1].equals(letter) && squares[2][2].equals(letter)) ||
             (squares[0][2].equals(letter) && squares[1][1].equals(letter) && squares[2][0].equals(letter))) {
             return true;
@@ -39,7 +40,7 @@ public class Grid {
         return false;
     }
 
-    public boolean isDraw(){
+    public boolean isDraw(){ // Check if the players both didn't win
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 if (isEmpty(i, j)) {
@@ -50,14 +51,17 @@ public class Grid {
         return true;
     }
 
-    public void display(){
+    public void display() {
+        System.out.println("    1 | 2 | 3"); // Column headers
+        System.out.println("  -------------");
         for (int i = 0; i < SIZE; i++) {
+            char rowLabel = (char) ('A' + i); // A, B, C (top to bottom)
+            System.out.print(rowLabel + " | ");
             for (int j = 0; j < SIZE; j++) {
                 System.out.print(squares[i][j]);
-                if (j < SIZE - 1) System.out.print("  |  ");
+                if (j < SIZE - 1) System.out.print(" | ");
             }
-            System.out.println();
-            if (i < SIZE - 1) System.out.println("-------------");
+            System.out.println("\n  -------------");
         }
     }
 

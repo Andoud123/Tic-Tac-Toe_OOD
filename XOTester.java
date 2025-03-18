@@ -4,7 +4,7 @@ public class XOTester {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        while (true) {
+        while (true) { //loop to return to main menu after finishing the game
             System.out.println("\nWelcome to Tic-Tac-Toe!\n");
             System.out.println("How do you want to play? (Enter the number of your choice)\n1- Player vs Player,\n2- Player vs Computer.");
             int choice;
@@ -25,7 +25,7 @@ public class XOTester {
             Player player1 = new Human(player1Name);
             Player player2;
 
-            if (choice == 1) {
+            if (choice == 1) { //Player vs Player
                 System.out.print("Enter Player 2's name: ");
                 String player2Name = scan.nextLine();
                 System.out.println(" ");
@@ -37,7 +37,7 @@ public class XOTester {
             int player1Score = 0;
             int player2Score = 0;
 
-            while (player1Score < 3 && player2Score < 3) {
+            while (player1Score < 3 && player2Score < 3) { // Checks if none of the players had 3 wins
                 Grid grid = new Grid();
                 Player currentPlayer = player1;
                 String currentSymbol = "X";
@@ -58,7 +58,7 @@ public class XOTester {
                             row = move.charAt(0) - 'A';
                             column = move.charAt(1) - '1';
 
-                            if (grid.isEmpty(row, column)) {
+                            if (grid.isEmpty(row, column)) { // check if the cell is empty or occupied
                                 break;
                             } else {
                                 System.out.println("\nCell already occupied! Try again.\n");
@@ -70,7 +70,7 @@ public class XOTester {
 
                     grid.squares[row][column] = currentSymbol;
 
-                    if (grid.ifWon(currentSymbol)) {
+                    if (grid.ifWon(currentSymbol)) { // present the winner of the current round
                         grid.display();
                         System.out.println("\n" + currentPlayer.getName() + " wins this round!");
 
@@ -96,20 +96,20 @@ public class XOTester {
                     currentSymbol = (currentSymbol.equals("X")) ? "O" : "X";
                 }
 
-                if (player1Score == 3 || player2Score == 3) {
+                if (player1Score == 3 || player2Score == 3) { // when it's a draw
                     break;
                 }
 
                 System.out.println("\nStarting new round...\n");
             }
 
-            if (player1Score == 3) {
+            if (player1Score == 3) { // presents who is the winner of the game with the score
                 System.out.println("\n" + player1.getName() + " wins the game with a score of 3!");
             } else {
                 System.out.println("\n" + player2.getName() + " wins the game with a score of 3!");
             }
 
-            while (true) {
+            while (true) { // choose if he wants to play again or exit the game
                 System.out.println("\nWould you like to:\n1- Return to Main Menu\n2- Exit");
                 int menuChoice = scan.nextInt();
                 scan.nextLine();
